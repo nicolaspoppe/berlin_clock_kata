@@ -22,7 +22,7 @@ class BerlinClockKata
         return $tabMinutesSimples;
     }
 
-    public function getMinutesBloc(){
+    public function getMinutesBlocOf5(){
         $quotient = floor($this->minutes / 5);
         $tabMinutesBloc = ['O','O','O','O','O','O','O','O','O','O','O'];
         for($i=0;$i<$quotient;$i++){
