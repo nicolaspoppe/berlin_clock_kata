@@ -45,6 +45,16 @@ class BerlinClockKata
         }
         return $tabSimpleHours;
     }
+
+    public function getHoursBlocOf5(){
+        $q = floor($this->heures / 5);
+        $tabHoursBloc = ['O','O','O','O'];
+        for($i=0;$i<$q;$i++){
+            $tabHoursBloc[$i] = 'R';
+        }
+        return $tabHoursBloc;
+    }
+
 }
 
 ?>
