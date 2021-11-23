@@ -1,6 +1,6 @@
 <?php
 
-class BerlinClockData
+class BerlinClockKata
 {
     private $heures;
     private $minutes;
