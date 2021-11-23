@@ -2,30 +2,28 @@
 
 class BerlinClockKata
 {
-    private $heures;
+    private $hours;
     private $minutes;
-    private $secondes;
+    private $seconds;
 
-    public function __construct($heures, $minutes, $secondes){
-        $this->heures = $heures;
+    public function __construct($hours, $minutes, $seconds){
+        $this->hours = $hours;
         $this->minutes = $minutes;
-        $this->secondes = $secondes;
-        //$this->horloge = [['O'],['O','O','O','O'],['O','O','O','O'],['O','O','O','O','O','O','O','O','O','O','O'],['O','O','O','O']];
-
+        $this->seconds = $seconds;
     }
-    public function getMinutesSimples(){
-        $reste = $this->minutes%5;
+    public function getSimpleMinutes(){
+        $rest = $this->minutes%5;
         $tabMinutesSimples = ['O','O','O','O'];
-        for($i=0;$i<$reste;$i++){
+        for($i=0;$i<$rest;$i++){
             $tabMinutesSimples[$i]='Y';
         }
         return $tabMinutesSimples;
     }
 
     public function getMinutesBlocOf5(){
-        $quotient = floor($this->minutes / 5);
+        $q = floor($this->minutes / 5);
         $tabMinutesBloc = ['O','O','O','O','O','O','O','O','O','O','O'];
-        for($i=0;$i<$quotient;$i++){
+        for($i=0;$i<$q;$i++){
             if(($i+1)%3 != 0) {
                 $tabMinutesBloc[$i] = 'Y';
             }
@@ -38,7 +36,7 @@ class BerlinClockKata
 
     public function getSimpleHours()
     {
-        $rest = $this->heures%5;
+        $rest = $this->hours%5;
         $tabSimpleHours = ['O','O','O','O'];
         for($i=0;$i<$rest;$i++){
             $tabSimpleHours[$i]='R';
@@ -47,7 +45,7 @@ class BerlinClockKata
     }
 
     public function getHoursBlocOf5(){
-        $q = floor($this->heures / 5);
+        $q = floor($this->hours / 5);
         $tabHoursBloc = ['O','O','O','O'];
         for($i=0;$i<$q;$i++){
             $tabHoursBloc[$i] = 'R';
@@ -55,7 +53,7 @@ class BerlinClockKata
         return $tabHoursBloc;
     }
     public function getSeconds(){
-        return $this->secondes % 2 == 0 ? ['Y'] : ['O'];
+        return $this->seconds % 2 == 0 ? ['Y'] : ['O'];
     }
     public function getAllClock(){
         $allClock = [];
@@ -63,7 +61,7 @@ class BerlinClockKata
         $allClock[1] = $this->getHoursBlocOf5();
         $allClock[2] = $this->getSimpleHours();
         $allClock[3] = $this->getMinutesBlocOf5();
-        $allClock[4] = $this->getMinutesSimples();
+        $allClock[4] = $this->getSimpleMinutes();
         return $allClock;
     }
 
