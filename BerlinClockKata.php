@@ -57,6 +57,15 @@ class BerlinClockKata
     public function getSeconds(){
         return $this->secondes % 2 == 0 ? ['Y'] : ['O'];
     }
+    public function getAllClock(){
+        $allClock = [];
+        $allClock[0] = $this->getSeconds();
+        $allClock[1] = $this->getHoursBlocOf5();
+        $allClock[2] = $this->getSimpleHours();
+        $allClock[3] = $this->getMinutesBlocOf5();
+        $allClock[4] = $this->getMinutesSimples();
+        return $allClock;
+    }
 
 }
 

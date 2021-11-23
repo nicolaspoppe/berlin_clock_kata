@@ -34,4 +34,9 @@ class BerlinClockKataTest extends TestCase
         $actual = $berlinClock->getSeconds();
         $this->assertEquals(['O'],$actual);
     }
+    public function testAllClock(){
+        $berlinClock = new BerlinClockKata(16,50,06);
+        $actual = $berlinClock->getAllClock();
+        $this->assertEquals([['Y'],['R','R','R','O'],['R','O','O','O'],['Y','Y','R','Y','Y','R','Y','Y','R','Y','O'],['O','O','O','O']],$actual);
+    }
 }
