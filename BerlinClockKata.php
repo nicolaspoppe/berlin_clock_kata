@@ -54,6 +54,9 @@ class BerlinClockKata
         }
         return $tabHoursBloc;
     }
+    public function getSeconds(){
+        return $this->secondes % 2 == 0 ? ['Y'] : ['O'];
+    }
 
 }
 
