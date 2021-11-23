@@ -10,4 +10,10 @@ class BerlinClockKataTest extends TestCase
         $actual = $berlinClock->getMinutesSimples();
         $this->assertEquals(['Y','Y','O','O'],$actual);
     }
+
+    public function testMinutesBloc(){
+        $berlinClock = new BerlinClockKata(23,59,00);
+        $actual = $berlinClock->getMinutesBloc();
+        $this->assertEquals(['Y','Y','R','Y','Y','R','Y','Y','R','Y','Y'],$actual);
+    }
 }

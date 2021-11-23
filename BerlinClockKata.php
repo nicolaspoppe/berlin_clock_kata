@@ -5,7 +5,6 @@ class BerlinClockKata
     private $heures;
     private $minutes;
     private $secondes;
-    private $horloge;
 
     public function __construct($heures, $minutes, $secondes){
         $this->heures = $heures;
@@ -21,6 +20,20 @@ class BerlinClockKata
             $tabMinutesSimples[$i]='Y';
         }
         return $tabMinutesSimples;
+    }
+
+    public function getMinutesBloc(){
+        $quotient = floor($this->minutes / 5);
+        $tabMinutesBloc = ['O','O','O','O','O','O','O','O','O','O','O'];
+        for($i=0;$i<$quotient;$i++){
+            if(($i+1)%3 != 0) {
+                $tabMinutesBloc[$i] = 'Y';
+            }
+            else{
+                $tabMinutesBloc[$i] = 'R';
+            }
+        }
+        return $tabMinutesBloc;
     }
 }
 
